@@ -1,0 +1,12 @@
+[
+    {
+        "cpf": 12345678912,
+        "name": "Jack Shepard",
+        "birthday": "01/01/1989"
+    },
+    {
+        "cpf": 12345678912,
+        "name": "Kate Austen",
+        "birthday": "13/07/1989"
+    }
+]

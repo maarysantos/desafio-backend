@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 
+import routes from './routes'
+
 class App {
     public express: express.Application
     constructor () {
@@ -15,9 +17,7 @@ class App {
     }
 
     private routes (): void {
-      this.express.get('/', (req, res) => {
-        return res.send('Hello')
-      })
+      this.express.use(routes)
     }
 }
 
