@@ -22,10 +22,22 @@ class ClientController {
   }
 
   public async update (req: Request, res: Response): Promise<Response> {
-    // const cpf = req.param
+    const { name, birthday } = req.body
+    const cpf = req.params.id
+    const index = users.findIndex(user => user.cpf === Number(cpf))
+    let findUser = users.find(user => user.cpf === Number(cpf))
 
-    const filtroUsuarioCadastrado = users.find(user => user.cpf)
-    return res.send(filtroUsuarioCadastrado)
+    findUser = { ...findUser, name, birthday }
+    users.splice(index, 1, findUser)
+    return res.send(users)
+  }
+
+  public async delete (req: Request, res: Response): Promise<Response> {
+    const cpf = req.params.id
+    const index = users.findIndex(user => user.cpf === Number(cpf))
+
+    users.splice(index, 1)
+    return res.send(users)
   }
 }
 
