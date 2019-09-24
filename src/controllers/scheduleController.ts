@@ -3,13 +3,13 @@ import { Request, Response } from 'express'
 import schedule from '../models/Schedule.json'
 
 class ScheduleController {
-    // Lista todos os exames 
+    // Lista todos os agendamentos
     public async index (req: Request, res: Response): Promise<Response> {
-        const exams = schedule.map(exam => exam)
-        return res.status(200).json(exams)
+        const schedules = schedule.map(item => item)
+        return res.status(200).json(schedules)
 
     }
-    
+
     public async store (req: Request, res: Response): Promise<Response> {
     //cpf vai vim do req.session 
         const { idExam, nameExam, cpf, date, time } = req.body
